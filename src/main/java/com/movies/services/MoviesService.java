@@ -20,6 +20,12 @@ public class MoviesService {
 		return movies;
 	}
 	
+	public List<Movies> getDiscount(String promo_code, String coupon_code)
+	{	
+		System.out.println(promo_code);
+		return (List<Movies>) moviesRepo.findByPromoCode(promo_code, coupon_code);
+	}
+	
 	public void addMovies(Movies movies){
 		moviesRepo.save(movies);
 	}

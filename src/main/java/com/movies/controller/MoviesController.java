@@ -21,6 +21,14 @@ public class MoviesController
 		return moviesService.getAllMovies();
 	}
 	
+	@RequestMapping("/movies/{promo_code}/{coupon_code}")
+	public List<Movies> getTopic(@PathVariable String promo_code,@PathVariable String coupon_code)
+	{
+		List<Movies> movie= moviesService.getDiscount(promo_code,coupon_code);
+	    return movie;
+	}
+	
+	
 	@RequestMapping(value="/moviesAdd", method= RequestMethod.POST)
 	public void addMovies(@RequestBody Movies movies) 
 	{
