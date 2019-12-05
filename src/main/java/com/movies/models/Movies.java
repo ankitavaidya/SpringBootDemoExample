@@ -14,6 +14,7 @@ public class Movies
 	@Id //primary key
 	@Column(name="id")
 	private int id;
+	
 	@Column(name="name")
 	private String name;
 	

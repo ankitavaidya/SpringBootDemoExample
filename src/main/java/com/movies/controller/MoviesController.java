@@ -21,13 +21,18 @@ public class MoviesController
 		return moviesService.getAllMovies();
 	}
 	
-	@RequestMapping("/movies/{promo_code}/{coupon_code}")
-	public List<Movies> getTopic(@PathVariable String promo_code,@PathVariable String coupon_code)
+	@RequestMapping("/movies/storedprocedure")
+	public List<Movies> getMoviesList()
 	{
-		List<Movies> movie= moviesService.getDiscount(promo_code,coupon_code);
+		List<Movies> movie= moviesService.getDiscount();
 	    return movie;
 	}
 	
+	@RequestMapping("/{promo_code}/{coupon_code}")
+	public List<Movies> getAllByPromoCode(@PathVariable String promo_code,@PathVariable String coupon_code)
+	{
+		return (List<Movies>) moviesService.getListByPromoCode(promo_code,coupon_code);
+	}
 	
 	@RequestMapping(value="/moviesAdd", method= RequestMethod.POST)
 	public void addMovies(@RequestBody Movies movies) 

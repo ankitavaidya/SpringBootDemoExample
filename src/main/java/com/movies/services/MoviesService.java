@@ -20,10 +20,15 @@ public class MoviesService {
 		return movies;
 	}
 	
-	public List<Movies> getDiscount(String promo_code, String coupon_code)
+	public List<Movies> getDiscount()
 	{	
-		System.out.println(promo_code);
-		return (List<Movies>) moviesRepo.findByPromoCode(promo_code, coupon_code);
+		return moviesRepo.findByProcedure();
+	}
+	
+	public List<Movies> getListByPromoCode(String promo_code, String coupon_code)
+	{
+		System.out.println(promo_code+" "+coupon_code);
+		return (List<Movies>) moviesRepo.findByPromoCode(promo_code,coupon_code);
 	}
 	
 	public void addMovies(Movies movies){
